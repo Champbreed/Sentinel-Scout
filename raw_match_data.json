@@ -1,0 +1,15 @@
+{
+  "seriesId": "2589176",
+  "events": [
+    {"type": "kill", "killer": "C9_Perkz", "victim": "Enemy_1", "location": {"x": 1200, "y": 4500}, "time": 12.5},
+    {"type": "kill", "killer": "C9_Zven", "victim": "Enemy_2", "location": {"x": 1250, "y": 4550}, "time": 14.2},
+    {"type": "kill", "killer": "Enemy_3", "victim": "C9_Blaber", "location": {"x": -5000, "y": 2100}, "time": 45.0},
+    {"type": "kill", "killer": "C9_Perkz", "victim": "Enemy_3", "location": {"x": 1180, "y": 4480}, "time": 18.1},
+    {"type": "kill", "killer": "C9_Zven", "victim": "Enemy_4", "location": {"x": 8000, "y": 1000}, "time": 22.3},
+    {"type": "kill", "killer": "Enemy_1", "victim": "C9_Xeppaa", "location": {"x": -5100, "y": 2150}, "time": 30.5},
+    {"type": "kill", "killer": "C9_Blaber", "victim": "Enemy_5", "location": {"x": 1210, "y": 4520}, "time": 15.9},
+    {"type": "kill", "killer": "C9_Perkz", "victim": "Enemy_2", "location": {"x": 8100, "y": 1100}, "time": 110.2},
+    {"type": "kill", "killer": "Enemy_2", "victim": "C9_Zven", "location": {"x": -4950, "y": 2080}, "time": 55.4},
+    {"type": "kill", "killer": "C9_Xeppaa", "victim": "Enemy_4", "location": {"x": 7950, "y": 1050}, "time": 12.1}
+  ]
+}
