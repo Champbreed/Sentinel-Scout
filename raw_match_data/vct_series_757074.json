@@ -1,0 +1,21 @@
+{
+  "errors": [
+    {
+      "message": "Validation error (WrongType@[allSeries]) : argument 'filter.tournamentIds' with value 'ObjectValue{objectFields=[ObjectField{name='tournamentIds', value=ArrayValue{values=[StringValue{value='757074'}]}}]}' must be an object type",
+      "locations": [
+        {
+          "line": 9,
+          "column": 17
+        }
+      ],
+      "path": [
+        "allSeries"
+      ],
+      "extensions": {
+        "classification": "ValidationError",
+        "errorType": "BAD_REQUEST",
+        "errorDetail": "INVALID_ARGUMENT"
+      }
+    }
+  ]
+}

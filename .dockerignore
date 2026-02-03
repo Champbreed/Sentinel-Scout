@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.git/
+.idea/
+.vscode/
+
+# Ignore local output/data to keep build clean
+*.csv
+*.png
+raw_match_data/

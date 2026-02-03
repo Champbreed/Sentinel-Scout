@@ -1,33 +1,45 @@
 import json
 import pandas as pd
 from sklearn.cluster import KMeans
+import os
 
-def run_scout_analysis():
-    print("🛰️ Sentinel Scout: Analyzing Player Tendencies...")
-    
-    with open('raw_match_data.json', 'r') as f:
-        data = json.load(f)
+# 1. Load the Data
+DATA_PATH = "raw_match_data/match_mock_data.json"
 
-    # Filter for kills that happen in the first 20 seconds (The "Default" setup)
-    defaults = [e['location'] for e in data['events'] if e['type'] == 'kill' and e['time'] <= 20]
-    
-    if not defaults:
-        print("No early round data found.")
+def run_scouting_report():
+    if not os.path.exists(DATA_PATH):
+        print("❌ Error: Mock data file missing.")
         return
 
-    df = pd.DataFrame(defaults)
+    with open(DATA_PATH, 'r') as f:
+        data = json.load(f)
 
-    # Use AI (K-Means) to group these locations into 3 'Main Setup' zones
-    kmeans = KMeans(n_clusters=min(3, len(df)), n_init=10)
-    df['zone'] = kmeans.fit_predict(df[['x', 'y']])
+    # 2. Extract Coordinates
+    coords = []
+    for snapshot in data.get("snapshots", []):
+        for player in snapshot.get("playerStates", []):
+            coords.append({
+                "name": player["name"],
+                "x": player["x"],
+                "y": player["y"]
+            })
 
-    print("\n🚨 CLOUD9 SCOUTING REPORT: ENEMY DEFAULT ZONES")
+    df = pd.DataFrame(coords)
+    print(f"📊 Extracted {len(df)} positioning points.")
+
+    # 3. K-Means Clustering (Identifying 2 Hot Zones)
+    # Even with small data, this proves the pipeline works
+    kmeans = KMeans(n_clusters=2, n_init=10)
+    df['zone_cluster'] = kmeans.fit_predict(df[['x', 'y']])
+
+    # 4. Generate the Report
+    print("\n📝 --- SCOUTING REPORT: HOT ZONES ---")
     for i, center in enumerate(kmeans.cluster_centers_):
-        print(f"Zone {i+1}: Coordinates ({center[0]:.0f}, {center[1]:.0f}) - High Engagement Area")
+        print(f"Zone {i+1} Center: X={center[0]:.2f}, Y={center[1]:.2f}")
 
-    # Save CSV for submission
-    df.to_csv("scout_report.csv", index=False)
-    print("\n✅ Report saved to scout_report.csv")
+    # Save results for the Committee
+    df.to_csv("scouting_report.csv", index=False)
+    print("\n✨ SUCCESS: Scouting Report saved to 'scouting_report.csv'")
 
 if __name__ == "__main__":
-    run_scout_analysis()
+    run_scouting_report()

@@ -1,0 +1,19 @@
+{
+  "series_id": "757074",
+  "snapshot": {
+    "time": 10.5,
+    "playerStates": [
+      {"name": "C9_Xeppaa", "x": 1200, "y": 4500},
+      {"name": "C9_OXY", "x": -2500, "y": 1100},
+      {"name": "C9_vanity", "x": 500, "y": -200}
+    ]
+  },
+  "snapshot_2": {
+    "time": 15.0,
+    "playerStates": [
+      {"name": "C9_Xeppaa", "x": 1210, "y": 4510},
+      {"name": "C9_OXY", "x": -2550, "y": 1150},
+      {"name": "Enemy_Anchor", "x": 1250, "y": 4450}
+    ]
+  }
+}

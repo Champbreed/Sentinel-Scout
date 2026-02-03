@@ -1,6 +1,7 @@
-x,y,zone
-1200,4500,1
-1250,4550,2
-1180,4480,1
-1210,4520,1
-7950,1050,0
+time,player,x,y,file,zone
+10.5,C9_Xeppaa,1200.0,4500.0,vct_sample_series.json,1
+10.5,C9_OXY,-2500.0,1100.0,vct_sample_series.json,2
+10.5,C9_vanity,500.0,-200.0,vct_sample_series.json,0
+15.0,C9_Xeppaa,1210.0,4510.0,vct_sample_series.json,1
+15.0,C9_OXY,-2550.0,1150.0,vct_sample_series.json,2
+15.0,Enemy_Anchor,1250.0,4450.0,vct_sample_series.json,1

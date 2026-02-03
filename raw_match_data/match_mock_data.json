@@ -1,0 +1,22 @@
+{
+  "series_id": "MOCK_2589176",
+  "map": "Ascent",
+  "snapshots": [
+    {
+      "time": 5.2,
+      "playerStates": [
+        {"name": "C9_Duelist", "x": 1200, "y": 4500, "alive": true},
+        {"name": "C9_Sentinel", "x": 800, "y": 4200, "alive": true},
+        {"name": "Enemy_Anchor", "x": -500, "y": 2100, "alive": true}
+      ]
+    },
+    {
+      "time": 15.8,
+      "playerStates": [
+        {"name": "C9_Duelist", "x": 1350, "y": 4600, "alive": true},
+        {"name": "C9_Sentinel", "x": 850, "y": 4250, "alive": true},
+        {"name": "Enemy_Anchor", "x": -480, "y": 2150, "alive": true}
+      ]
+    }
+  ]
+}

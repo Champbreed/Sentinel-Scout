@@ -1,25 +1,20 @@
-import requests
+import os
+import json
 
-# Use your new key here
-API_KEY = "bOva6yRoK6ylz8XlxbYR0EXGhDe2bC935BK2q1km"
-# This is a sample Series ID. You can find more in the GRID Portal documentation.
-SERIES_ID = "2589176" 
-URL = f"https://api.grid.gg/file-download/end-state/grid/series/{SERIES_ID}"
-
-def get_scouting_data():
-    headers = {"x-api-key": API_KEY}
-    print(f"📡 Connecting to GRID... Downloading Series {SERIES_ID}")
+def load_data():
+    mock_path = "raw_match_data/match_mock_data.json"
     
-    response = requests.get(URL, headers=headers)
-    
-    if response.status_code == 200:
-        with open("raw_match_data.json", "w") as f:
-            f.write(response.text)
-        print("✅ Data Downloaded Successfully! Ready for Scout Analysis.")
+    # Check if we have our mock 'fail-safe'
+    if os.path.exists(mock_path):
+        with open(mock_path, 'r') as f:
+            print("💡 API Blocked: Using Local Mock Data for Analysis...")
+            return json.load(f)
     else:
-        print(f"❌ Failed! Status Code: {response.status_code}")
-        print("Tip: Check if the Series ID is still active in the GRID portal.")
+        print("❌ Error: No API access and no mock file found.")
+        return None
 
 if __name__ == "__main__":
-    get_scouting_data()
-
+    data = load_data()
+    if data:
+        print(f"✅ Data loaded for Series: {data['series_id']} on Map: {data['map']}")
+        # Now you can pass 'data' to your clustering/analysis function
